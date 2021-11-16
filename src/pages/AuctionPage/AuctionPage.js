@@ -4,6 +4,7 @@ import { useState } from "react";
 import { selectToken } from "../../store/user/selectors";
 import { fetchAllArtworks } from "../../store/artwork/actions";
 import axios from "axios";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 export default function AuctionPage() {
   const [title, setTitle] = useState("");
@@ -44,46 +45,56 @@ export default function AuctionPage() {
   }
 
   return (
-    <div>
-      <h1>Create a new auction with your artwork!</h1>
-      <div>
-        <form>
-          <label for="title">Title:</label>
-          <br />
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            type="text"
-            id="title"
-            name="title"
-          />
+    <Container>
+      <Row>
+        <Col>
+          <h2>Create a new auction with for artwork!</h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                value={title}
+                placeholder="Enter title"
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                id="title"
+                name="title"
+              />
+            </Form.Group>
 
-          <br />
-          <label for="minimum bid">Minimum Bid:</label>
-          <br />
-          <input
-            value={minimumBid}
-            onChange={(e) => setMinimumBid(e.target.value)}
-            type="number"
-            id="minimum bid"
-            name="minimum bid"
-          />
-          <br />
-          <label for="image">Your artwork image:</label>
-          <br />
-          <input
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            type="text"
-            id="image"
-            name="image"
-          />
-        </form>
-        <button type="submit" onClick={submitForm}>
-          Submit
-        </button>
-      </div>
-      <p>{message}</p>
-    </div>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Minimum Bid</Form.Label>
+              <Form.Control
+                value={minimumBid}
+                placeholder="Enter minimum bid"
+                onChange={(e) => setMinimumBid(e.target.value)}
+                type="number"
+                id="minimum bid"
+                name="minimum bid"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicImage">
+              <Form.Label>Artwork image</Form.Label>
+              <Form.Control
+                value={image}
+                placeholder="Enter image url"
+                onChange={(e) => setImage(e.target.value)}
+                type="text"
+                id="image"
+                name="image"
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={submitForm}>
+              Submit
+            </Button>
+            <p>{message}</p>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }

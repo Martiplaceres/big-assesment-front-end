@@ -16,12 +16,16 @@ export default function Navigation() {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={NavLink} to="/">
+      <Navbar.Brand
+        style={{ marginLeft: "10px", fontFamily: "Yuji Syuku, serif" }}
+        as={NavLink}
+        to="/"
+      >
         ARTLIFE
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
+        <Nav style={{ width: "100%", marginRight: "10px" }} fill>
           <NavbarItem path="/" linkText="Home" />
 
           {user.isAnArtist && (
