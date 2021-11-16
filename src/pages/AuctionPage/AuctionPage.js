@@ -39,7 +39,7 @@ export default function AuctionPage() {
       if (e.response) {
         setMessage(e.response.data);
       } else {
-        setMessage("Cannot create an artowork");
+        setMessage("Cannot create an artwwork");
       }
     }
   }
